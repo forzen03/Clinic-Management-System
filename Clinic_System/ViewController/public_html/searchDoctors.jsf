@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="searchDoctors.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="Doctors" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery.processQueryOperation}"
+                              resultComponentId="::resId1"/>
+                </af:panelHeader>
+                <af:panelCollection id="pc1">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Back" id="b1" action="doctor_back"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.DoctorsView1.collectionModel}" var="row"
+                              rows="#{bindings.DoctorsView1.rangeSize}"
+                              emptyText="#{bindings.DoctorsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.DoctorsView1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.DoctorsView1.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.DoctorsView1.rangeSize}"
+                              filterModel="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}" filterVisible="true"
+                              varStatus="vs" id="resId1">
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.DoctorId.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.DoctorId.label}"
+                                   id="resId1c1">
+                            <af:outputText value="#{row.DoctorId}"
+                                           shortDesc="#{bindings.DoctorsView1.hints.DoctorId.tooltip}" id="ot1">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.DoctorsView1.hints.DoctorId.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.Firstname.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.Firstname.label}"
+                                   id="resId1c2">
+                            <af:outputText value="#{row.Firstname}"
+                                           shortDesc="#{bindings.DoctorsView1.hints.Firstname.tooltip}" id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.Lastname.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.Lastname.label}"
+                                   id="resId1c3">
+                            <af:outputText value="#{row.Lastname}"
+                                           shortDesc="#{bindings.DoctorsView1.hints.Lastname.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.Speciality.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.Speciality.label}"
+                                   id="resId1c4">
+                            <af:selectOneChoice value="#{row.bindings.Speciality.inputValue}"
+                                                label="#{row.bindings.Speciality.label}"
+                                                required="#{bindings.DoctorsView1.hints.Speciality.mandatory}"
+                                                shortDesc="#{bindings.DoctorsView1.hints.Speciality.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Speciality.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Speciality.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.Phone.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.Phone.label}"
+                                   id="resId1c5">
+                            <af:outputText value="#{row.Phone}" shortDesc="#{bindings.DoctorsView1.hints.Phone.tooltip}"
+                                           id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.DoctorsView1.hints.Doctorsummary.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.DoctorsView1.hints.Doctorsummary.label}"
+                                   id="resId1c6">
+                            <af:outputText value="#{row.Doctorsummary}"
+                                           shortDesc="#{bindings.DoctorsView1.hints.Doctorsummary.tooltip}" id="ot5"/>
+                        </af:column>
+                    </af:table>
+                </af:panelCollection>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

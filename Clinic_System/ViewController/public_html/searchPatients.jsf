@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="searchPatients.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGroupLayout layout="vertical" id="pgl1">
+                <af:panelHeader text="Patients" id="ph1">
+                    <af:query id="qryId1" headerText="Search" disclosed="true"
+                              value="#{bindings.ImplicitViewCriteriaQuery1.queryDescriptor}"
+                              model="#{bindings.ImplicitViewCriteriaQuery1.queryModel}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}"
+                              queryOperationListener="#{bindings.ImplicitViewCriteriaQuery1.processQueryOperation}"
+                              resultComponentId="::resId1"/>
+                </af:panelHeader>
+                <af:panelCollection id="pc1">
+                    <f:facet name="menus"/>
+                    <f:facet name="toolbar">
+                        <af:toolbar id="t1">
+                            <af:button text="Back" id="b1" action="patient_back"/>
+                        </af:toolbar>
+                    </f:facet>
+                    <f:facet name="statusbar"/>
+                    <af:table value="#{bindings.PatientsView11.collectionModel}" var="row"
+                              rows="#{bindings.PatientsView11.rangeSize}"
+                              emptyText="#{bindings.PatientsView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0"
+                              selectedRowKeys="#{bindings.PatientsView11.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.PatientsView11.collectionModel.makeCurrent}"
+                              rowSelection="single" fetchSize="#{bindings.PatientsView11.rangeSize}"
+                              filterModel="#{bindings.ImplicitViewCriteriaQuery1.queryDescriptor}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery1.processQuery}" filterVisible="true"
+                              varStatus="vs" id="resId1">
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.PatientId.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PatientsView11.hints.PatientId.label}"
+                                   id="resId1c1">
+                            <af:outputText value="#{row.PatientId}"
+                                           shortDesc="#{bindings.PatientsView11.hints.PatientId.tooltip}" id="ot1"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.Name.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PatientsView11.hints.Name.label}"
+                                   id="resId1c2">
+                            <af:outputText value="#{row.Name}" shortDesc="#{bindings.PatientsView11.hints.Name.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.Phone.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PatientsView11.hints.Phone.label}"
+                                   id="resId1c3">
+                            <af:outputText value="#{row.Phone}"
+                                           shortDesc="#{bindings.PatientsView11.hints.Phone.tooltip}" id="ot3"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.Email.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PatientsView11.hints.Email.label}"
+                                   id="resId1c4">
+                            <af:outputText value="#{row.Email}"
+                                           shortDesc="#{bindings.PatientsView11.hints.Email.tooltip}" id="ot4"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.registrationStatus.name}"
+                                   sortable="true"
+                                   headerText="#{bindings.PatientsView11.hints.registrationStatus.label}"
+                                   filterable="true" id="resId1c5">
+                            <af:outputText value="#{row.registrationStatus}"
+                                           shortDesc="#{bindings.PatientsView11.hints.registrationStatus.tooltip}"
+                                           id="ot5"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.PatientsView11.hints.Gender.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.PatientsView11.hints.Gender.label}"
+                                   id="resId1c6">
+                            <af:selectOneChoice value="#{row.bindings.Gender.inputValue}"
+                                                label="#{row.bindings.Gender.label}"
+                                                required="#{bindings.PatientsView11.hints.Gender.mandatory}"
+                                                shortDesc="#{bindings.PatientsView11.hints.Gender.tooltip}"
+                                                readOnly="true" id="soc1">
+                                <f:selectItems value="#{row.bindings.Gender.items}" id="si1"/>
+                                <f:validator binding="#{row.bindings.Gender.validator}"/>
+                            </af:selectOneChoice>
+                        </af:column>
+                    </af:table>
+                </af:panelCollection>
+            </af:panelGroupLayout>
+        </af:form>
+    </af:document>
+</f:view>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.8" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <pageMap>
+    <page path="/doctors.jsf" usageId="view_doctorsPageDef"/>
+    <page path="/patients.jsf" usageId="view_patientsPageDef"/>
+    <page path="/appointments.jsf" usageId="view_appointmentsPageDef"/>
+    <page path="/searchPatients.jsf" usageId="view_searchPatientsPageDef"/>
+    <page path="/searchDoctors.jsf" usageId="view_searchDoctorsPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_doctorsPageDef" path="view.pageDefs.doctorsPageDef"/>
+    <page id="view_patientsPageDef" path="view.pageDefs.patientsPageDef"/>
+    <page id="view_appointmentsPageDef" path="view.pageDefs.appointmentsPageDef"/>
+    <page id="view_searchPatientsPageDef" path="view.pageDefs.searchPatientsPageDef"/>
+    <page id="view_searchDoctorsPageDef" path="view.pageDefs.searchDoctorsPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="searchPatientsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PatientsView1" RangeSize="25" DataControl="AppModuleDataControl" id="PatientsView1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PatientsView1Iterator" id="ImplicitViewCriteriaQuery"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="PatientsView1Iterator" id="ImplicitViewCriteriaQuery1"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="PatientsView1Iterator" id="PatientsView1">
+      <nodeDefinition DefName="vo.PatientsView" Name="PatientsView10">
+        <AttrNames>
+          <Item Value="PatientId"/>
+          <Item Value="Name"/>
+          <Item Value="Phone"/>
+          <Item Value="Email"/>
+          <Item Value="registrationStatus"/>
+          <Item Value="Gender"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="PatientsView1Iterator" id="PatientsView11">
+      <nodeDefinition DefName="vo.PatientsView" Name="PatientsView110">
+        <AttrNames>
+          <Item Value="PatientId"/>
+          <Item Value="Name"/>
+          <Item Value="Phone"/>
+          <Item Value="Email"/>
+          <Item Value="registrationStatus"/>
+          <Item Value="Gender"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

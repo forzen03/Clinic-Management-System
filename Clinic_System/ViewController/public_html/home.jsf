@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="home.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGroupLayout id="pgl1">
+                <af:button text="Go to Patients" id="b2" action="go_patients"/>
+            </af:panelGroupLayout>
+            <af:button text="Go to doctors" id="b1" action="go_doctors"/>
+            <af:button text="Go to appointments" id="b3" action="go_appointment"/>
+        </af:form>
+    </af:document>
+</f:view>

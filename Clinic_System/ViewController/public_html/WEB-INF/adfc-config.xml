@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="home">
+    <page>/home.jsf</page>
+  </view>
+  <view id="appointments">
+    <page>/appointments.jsf</page>
+  </view>
+  <view id="doctors">
+    <page>/doctors.jsf</page>
+  </view>
+  <view id="patients">
+    <page>/patients.jsf</page>
+  </view>
+  <view id="searchDoctors">
+    <page>/searchDoctors.jsf</page>
+  </view>
+  <view id="searchPatients">
+    <page>/searchPatients.jsf</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>home</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>go_patients</from-outcome>
+      <to-activity-id>patients</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>go_doctors</from-outcome>
+      <to-activity-id>doctors</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>go_appointment</from-outcome>
+      <to-activity-id>appointments</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__5">
+    <from-activity-id>patients</from-activity-id>
+    <control-flow-case id="__6">
+      <from-outcome>p_back</from-outcome>
+      <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__14">
+      <from-outcome>p_search</from-outcome>
+      <to-activity-id>searchPatients</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__7">
+    <from-activity-id>doctors</from-activity-id>
+    <control-flow-case id="__8">
+      <from-outcome>d_back</from-outcome>
+      <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__13">
+      <from-outcome>d_search</from-outcome>
+      <to-activity-id>searchDoctors</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__9">
+    <from-activity-id>appointments</from-activity-id>
+    <control-flow-case id="__10">
+      <from-outcome>a_back</from-outcome>
+      <to-activity-id>home</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__11">
+    <from-activity-id>searchDoctors</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome>doctor_back</from-outcome>
+      <to-activity-id>doctors</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__15">
+    <from-activity-id>searchPatients</from-activity-id>
+    <control-flow-case id="__16">
+      <from-outcome>patient_back</from-outcome>
+      <to-activity-id>patients</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

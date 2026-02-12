@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20110701' xmlns:uml='http://www.omg.org/spec/UML/20110701'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.1.3.0.0'/>
+ <uml:Association xmi:type='uml:Association' xmi:uuid='urn:uuid:ce227617-cc05-4826-8108-5c279ff76619'
+   isAbstract='false'
+   isDerived='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Association1'
+   visibility='public'>
+  <memberEnd href='urn:uuid:aac0920f-59a7-4122-b657-c886ef027473'/>
+  <memberEnd href='urn:uuid:ca44fafe-9f1c-4c4f-9286-2e1bf511af2e'/>
+  <navigableOwnedEnd href='urn:uuid:ca44fafe-9f1c-4c4f-9286-2e1bf511af2e'/>
+  <ownedEnd xmi:type='uml:Property' xmi:uuid='urn:uuid:aac0920f-59a7-4122-b657-c886ef027473'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='Doctor'
+    aggregation='none'>
+   <association href='urn:uuid:ce227617-cc05-4826-8108-5c279ff76619'/>
+   <type href='urn:uuid:ff14721b-c4cf-4eb9-8fa8-a58da5308469'/>
+   <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:cbd834c4-2f79-4b5e-8f8b-18dd55191537'
+     value='1'
+     visibility='public'/>
+   <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:uuid='urn:uuid:4b61a1a3-d5f2-44ac-9ecf-2b2828d0bc67'
+     value='1'
+     visibility='public'/>
+  </ownedEnd>
+  <ownedEnd xmi:type='uml:Property' xmi:uuid='urn:uuid:ca44fafe-9f1c-4c4f-9286-2e1bf511af2e'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='Appointments'
+    aggregation='none'>
+   <association href='urn:uuid:ce227617-cc05-4826-8108-5c279ff76619'/>
+   <type href='urn:uuid:86ff33aa-4961-4bfa-86c9-e2770d5dcf62'/>
+   <lowerValue xmi:type='uml:LiteralInteger' xmi:uuid='urn:uuid:a39f7ae0-b983-400e-9394-d5aa1ecf64aa'
+     value='0'
+     visibility='public'/>
+   <upperValue xmi:type='uml:LiteralUnlimitedNatural' xmi:uuid='urn:uuid:8c8b706d-43de-481a-9046-573309ef56e1'
+     value='*'
+     visibility='public'/>
+  </ownedEnd>
+ </uml:Association>
+</xmi:XMI>

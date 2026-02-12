@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<xmi:XMI xmlns:xmi='http://www.omg.org/spec/XMI/20110701' xmlns:uml='http://www.omg.org/spec/UML/20110701'>
+ <documentation exporter='Oracle JDeveloper' exporterVersion='12.1.3.0.0'/>
+ <uml:Class xmi:type='uml:Class' xmi:uuid='urn:uuid:86ff33aa-4961-4bfa-86c9-e2770d5dcf62'
+   isAbstract='false'
+   isActive='false'
+   isFinalSpecialization='false'
+   isLeaf='false'
+   name='Appointment'
+   visibility='public'>
+  <ownedAttribute xmi:type='uml:Property' xmi:uuid='urn:uuid:aa859a36-3319-4bc4-bce6-2704c71770c3'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='appointmentId &lt;&lt;PK>>'
+    aggregation='none'>
+   <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String'/>
+  </ownedAttribute>
+  <ownedAttribute xmi:type='uml:Property' xmi:uuid='urn:uuid:3cc171c3-0694-44ab-8304-69c6a8658716'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='DateTime'
+    aggregation='none'>
+   <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String'/>
+  </ownedAttribute>
+  <ownedAttribute xmi:type='uml:Property' xmi:uuid='urn:uuid:ad7146b5-4e38-4857-aa79-0408733e2ba0'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='doctorId &lt;&lt;FK>>'
+    aggregation='none'>
+   <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer'/>
+  </ownedAttribute>
+  <ownedAttribute xmi:type='uml:Property' xmi:uuid='urn:uuid:0797c9ab-75be-4141-8a2d-4740997e0cb6'
+    isDerived='false'
+    isDerivedUnion='false'
+    isID='false'
+    isLeaf='false'
+    isOrdered='false'
+    isReadOnly='false'
+    isStatic='false'
+    isUnique='true'
+    name='patientId &lt;&lt;FK>>'
+    aggregation='none'>
+   <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer'/>
+  </ownedAttribute>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:2b8101de-b91c-4b2d-97b9-5d8629b8dc76'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='bookAppointment'
+    concurrency='sequential'
+    visibility='public'/>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:f8a1359a-2b68-4239-8ef3-772087cf9fb8'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='updateAppointment'
+    concurrency='sequential'
+    visibility='public'/>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:dc3f59b2-e827-4db1-a23b-c4686e1d8e95'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='cancelAppointment'
+    concurrency='sequential'
+    visibility='public'/>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:c6b7f231-e5a3-41bf-ba44-787a733fae1c'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='getAppointmentDetails'
+    concurrency='sequential'
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:0dcc3105-a131-4f23-84b2-d7ee8c65eb9b'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     name='appointmentId'
+     direction='in'>
+    <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer'/>
+   </ownedParameter>
+  </ownedOperation>
+  <ownedOperation xmi:type='uml:Operation' xmi:uuid='urn:uuid:38940867-b8e0-4188-b1aa-efafe68ecee1'
+    isAbstract='false'
+    isLeaf='false'
+    isQuery='false'
+    isStatic='false'
+    name='checkAvailability'
+    concurrency='sequential'
+    visibility='public'>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:318b57bd-dbac-4fea-ac21-5206bf2249ac'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     name='doctorId'
+     direction='in'>
+    <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#Integer'/>
+   </ownedParameter>
+   <ownedParameter xmi:type='uml:Parameter' xmi:uuid='urn:uuid:ca97ac1f-a786-42ad-9262-c9ad8e96e50e'
+     isException='false'
+     isOrdered='false'
+     isStream='false'
+     isUnique='true'
+     name='dateTime'
+     direction='in'>
+    <type href='http://www.omg.org/spec/UML/20110701/PrimitiveTypes.xmi#String'/>
+   </ownedParameter>
+  </ownedOperation>
+ </uml:Class>
+</xmi:XMI>

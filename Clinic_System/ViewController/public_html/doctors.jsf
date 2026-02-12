@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="doctors.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter id="ps1" splitterPosition="366">
+                <f:facet name="first">
+                    <af:panelAccordion discloseMany="false" id="pa1">
+                        <af:showDetailItem id="pane1" text="Doctors">
+                            <af:button text="Search" id="b10" action="d_search"/>
+                            <af:panelGroupLayout id="pgl1">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.DoctorId.inputValue}"
+                                                  label="#{bindings.DoctorId.hints.label}"
+                                                  required="#{bindings.DoctorId.hints.mandatory}"
+                                                  columns="#{bindings.DoctorId.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DoctorId.hints.precision}"
+                                                  shortDesc="#{bindings.DoctorId.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.DoctorId.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DoctorId.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Firstname.inputValue}"
+                                                  label="#{bindings.Firstname.hints.label}"
+                                                  required="#{bindings.Firstname.hints.mandatory}"
+                                                  columns="#{bindings.Firstname.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Firstname.hints.precision}"
+                                                  shortDesc="#{bindings.Firstname.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.Firstname.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Lastname.inputValue}"
+                                                  label="#{bindings.Lastname.hints.label}"
+                                                  required="#{bindings.Lastname.hints.mandatory}"
+                                                  columns="#{bindings.Lastname.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Lastname.hints.precision}"
+                                                  shortDesc="#{bindings.Lastname.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.Lastname.validator}"/>
+                                    </af:inputText>
+                                    <af:selectOneRadio value="#{bindings.Speciality.inputValue}"
+                                                       label="#{bindings.Speciality.label}"
+                                                       required="#{bindings.Speciality.hints.mandatory}"
+                                                       shortDesc="#{bindings.Speciality.hints.tooltip}" id="sor1">
+                                        <f:selectItems value="#{bindings.Speciality.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.Speciality.validator}"/>
+                                    </af:selectOneRadio>
+                                    <af:inputText value="#{bindings.Phone.inputValue}"
+                                                  label="#{bindings.Phone.hints.label}"
+                                                  required="#{bindings.Phone.hints.mandatory}"
+                                                  columns="#{bindings.Phone.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Phone.hints.precision}"
+                                                  shortDesc="#{bindings.Phone.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.Phone.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Doctorsummary.inputValue}"
+                                                  label="#{bindings.Doctorsummary.hints.label}"
+                                                  required="#{bindings.Doctorsummary.hints.mandatory}"
+                                                  columns="#{bindings.Doctorsummary.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Doctorsummary.hints.precision}"
+                                                  shortDesc="#{bindings.Doctorsummary.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.Doctorsummary.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                            <af:button actionListener="#{bindings.First.execute}" text="First"
+                                                       disabled="#{!bindings.First.enabled}" partialSubmit="true"
+                                                       id="b1"/>
+                                            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
+                                                       id="b2"/>
+                                            <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true"
+                                                       id="b3"/>
+                                            <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true"
+                                                       id="b4"/>
+                                        </af:panelGroupLayout>
+                                        <af:panelGroupLayout id="pgl3">
+                                            <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                                       text="Add Doctor" disabled="#{!bindings.CreateInsert.enabled}"
+                                                       id="b5"/>
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b6"/>
+                                            <af:button text="Commit"
+                                                       disabled="false" id="b7"
+                                                       action="#{bindings.Commit.execute}" rendered="true"
+                                                       immediate="true"/>
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                       disabled="false" immediate="true"
+                                                       id="b8">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                        </af:panelGroupLayout>
+                                        <af:button text="Back to home" id="b9" action="d_back"/>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </af:panelGroupLayout>
+                        </af:showDetailItem>
+                        <af:showDetailItem id="pane2" text="About Doctor">
+                            <af:outputText value="Manage doctor records and schedules. Add, view, update, or delete doctors and their appointments." id="ot6"
+                                           inlineStyle="color:Teal; font-size:large;"/>
+                        </af:showDetailItem>
+                    </af:panelAccordion>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus">
+                            <af:menu text="menu 1" id="m2">
+                                <af:commandMenuItem text="export as excel" id="cmi1">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="t1"/>
+                                </af:commandMenuItem>
+                            </af:menu>
+                        </f:facet>
+                        <f:facet name="toolbar">
+                            <af:toolbar id="t2">
+                                <af:button text="export as excel" id="b11">
+                                    <af:exportCollectionActionListener type="excelHTML" exportedId="t1"/>
+                                </af:button>
+                            </af:toolbar>
+                        </f:facet>
+                        <af:table value="#{bindings.AppointmentsView2.collectionModel}" var="row"
+                                  rows="#{bindings.AppointmentsView2.rangeSize}"
+                                  emptyText="#{bindings.AppointmentsView2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.AppointmentsView2.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.AppointmentsView2.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.AppointmentsView2.rangeSize}"
+                                  filterModel="#{bindings.AppointmentsView2Query.queryDescriptor}"
+                                  queryListener="#{bindings.AppointmentsView2Query.processQuery}" filterVisible="true"
+                                  varStatus="vs" id="t1">
+                            <af:column sortProperty="#{bindings.AppointmentsView2.hints.AppointmentId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.AppointmentsView2.hints.AppointmentId.label}" id="c1">
+                                <af:outputText value="#{row.AppointmentId}"
+                                               shortDesc="#{bindings.AppointmentsView2.hints.AppointmentId.tooltip}"
+                                               id="ot1"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.AppointmentsView2.hints.Datetime.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.AppointmentsView2.hints.Datetime.label}" id="c2">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.AppointmentsView2Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Datetime.value}"
+                                                  id="id1">
+                                        <af:convertDateTime pattern="#{bindings.AppointmentsView2.hints.Datetime.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.Datetime}"
+                                               shortDesc="#{bindings.AppointmentsView2.hints.Datetime.tooltip}"
+                                               id="ot2">
+                                    <af:convertDateTime pattern="#{bindings.AppointmentsView2.hints.Datetime.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.AppointmentsView2.hints.DoctorId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.AppointmentsView2.hints.DoctorId.label}" id="c3">
+                                <af:outputText value="#{row.DoctorId}"
+                                               shortDesc="#{bindings.AppointmentsView2.hints.DoctorId.tooltip}"
+                                               id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.AppointmentsView2.hints.DoctorId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.AppointmentsView2.hints.PatientId.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.AppointmentsView2.hints.PatientId.label}" id="c4">
+                                <af:outputText value="#{row.PatientId}"
+                                               shortDesc="#{bindings.AppointmentsView2.hints.PatientId.tooltip}"
+                                               id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.AppointmentsView2.hints.Status.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.AppointmentsView2.hints.Status.label}"
+                                       id="c5">
+                                <af:outputText value="#{row.Status}"
+                                               shortDesc="#{bindings.AppointmentsView2.hints.Status.tooltip}" id="ot5"/>
+                            </af:column>
+                        </af:table>
+                        <f:facet name="statusbar"/>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>

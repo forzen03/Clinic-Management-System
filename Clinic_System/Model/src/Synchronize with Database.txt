@@ -1,0 +1,4 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :Patients
+  Create Attribute for column: GENDER

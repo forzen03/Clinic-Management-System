@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="appointments.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                    <af:toolbar id="t2">
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                   disabled="false" id="b1"/>
+                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                   disabled="false" immediate="true" id="b2">
+                            <af:resetActionListener/>
+                        </af:button>
+                    </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.AppointmentsView1.collectionModel}" var="row"
+                          rows="#{bindings.AppointmentsView1.rangeSize}"
+                          emptyText="#{bindings.AppointmentsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AppointmentsView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AppointmentsView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AppointmentsView1.rangeSize}"
+                          filterModel="#{bindings.AppointmentsView1Query.queryDescriptor}"
+                          queryListener="#{bindings.AppointmentsView1Query.processQuery}" filterVisible="true"
+                          varStatus="vs" id="t1">
+                    <af:column sortProperty="#{bindings.AppointmentsView1.hints.AppointmentId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AppointmentsView1.hints.AppointmentId.label}"
+                               id="c1">
+                        <af:inputText value="#{row.bindings.AppointmentId.inputValue}"
+                                      label="#{bindings.AppointmentsView1.hints.AppointmentId.label}"
+                                      required="#{bindings.AppointmentsView1.hints.AppointmentId.mandatory}"
+                                      columns="#{bindings.AppointmentsView1.hints.AppointmentId.displayWidth}"
+                                      maximumLength="#{bindings.AppointmentsView1.hints.AppointmentId.precision}"
+                                      shortDesc="#{bindings.AppointmentsView1.hints.AppointmentId.tooltip}" id="it1">
+                            <f:validator binding="#{row.bindings.AppointmentId.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView1.hints.Datetime.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AppointmentsView1.hints.Datetime.label}" id="c2">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.AppointmentsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.Datetime.value}"
+                                          id="id1">
+                                <af:convertDateTime pattern="#{bindings.AppointmentsView1.hints.Datetime.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.Datetime.inputValue}"
+                                      label="#{bindings.AppointmentsView1.hints.Datetime.label}"
+                                      required="#{bindings.AppointmentsView1.hints.Datetime.mandatory}"
+                                      columns="#{bindings.AppointmentsView1.hints.Datetime.displayWidth}"
+                                      shortDesc="#{bindings.AppointmentsView1.hints.Datetime.tooltip}" id="id2">
+                            <f:validator binding="#{row.bindings.Datetime.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.AppointmentsView1.hints.Datetime.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView1.hints.DoctorId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AppointmentsView1.hints.DoctorId.label}" id="c3">
+                        <af:inputText value="#{row.bindings.DoctorId.inputValue}"
+                                      label="#{bindings.AppointmentsView1.hints.DoctorId.label}"
+                                      required="#{bindings.AppointmentsView1.hints.DoctorId.mandatory}"
+                                      columns="#{bindings.AppointmentsView1.hints.DoctorId.displayWidth}"
+                                      maximumLength="#{bindings.AppointmentsView1.hints.DoctorId.precision}"
+                                      shortDesc="#{bindings.AppointmentsView1.hints.DoctorId.tooltip}" id="it2">
+                            <f:validator binding="#{row.bindings.DoctorId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AppointmentsView1.hints.DoctorId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView1.hints.PatientId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AppointmentsView1.hints.PatientId.label}" id="c4">
+                        <af:inputText value="#{row.bindings.PatientId.inputValue}"
+                                      label="#{bindings.AppointmentsView1.hints.PatientId.label}"
+                                      required="#{bindings.AppointmentsView1.hints.PatientId.mandatory}"
+                                      columns="#{bindings.AppointmentsView1.hints.PatientId.displayWidth}"
+                                      maximumLength="#{bindings.AppointmentsView1.hints.PatientId.precision}"
+                                      shortDesc="#{bindings.AppointmentsView1.hints.PatientId.tooltip}" id="it3">
+                            <f:validator binding="#{row.bindings.PatientId.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.AppointmentsView1.hints.Status.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.AppointmentsView1.hints.Status.label}" id="c5">
+                        <af:inputText value="#{row.bindings.Status.inputValue}"
+                                      label="#{bindings.AppointmentsView1.hints.Status.label}"
+                                      required="#{bindings.AppointmentsView1.hints.Status.mandatory}"
+                                      columns="#{bindings.AppointmentsView1.hints.Status.displayWidth}"
+                                      maximumLength="#{bindings.AppointmentsView1.hints.Status.precision}"
+                                      shortDesc="#{bindings.AppointmentsView1.hints.Status.tooltip}" id="it4">
+                            <f:validator binding="#{row.bindings.Status.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
+            </af:panelCollection>
+            <af:button text="Back to home" id="b3" action="a_back"/>
+        </af:form>
+    </af:document>
+</f:view>

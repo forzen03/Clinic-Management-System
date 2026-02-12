@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.8" id="searchDoctorsPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DoctorsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DoctorsView1Iterator"/>
+    <searchRegion Criteria="__ImplicitViewCriteria__" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="DoctorsView1Iterator" id="ImplicitViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DoctorsView1Iterator" id="DoctorsView1">
+      <nodeDefinition DefName="vo.DoctorsView" Name="DoctorsView10">
+        <AttrNames>
+          <Item Value="DoctorId"/>
+          <Item Value="Firstname"/>
+          <Item Value="Lastname"/>
+          <Item Value="Speciality"/>
+          <Item Value="Phone"/>
+          <Item Value="Doctorsummary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
